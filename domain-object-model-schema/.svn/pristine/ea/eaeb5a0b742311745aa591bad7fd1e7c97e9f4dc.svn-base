@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:tns="http://das.fbk.eu/Scenario"
+	targetNamespace="http://das.fbk.eu/Scenario" elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="scenario">
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="unbounded">
+				<xs:element name="domainObject">
+					<xs:complexType>
+						<xs:sequence minOccurs="0" maxOccurs="unbounded">
+							<xs:element name="domainObjectInstance">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element
+											name="domainObjectInstanceKnowledge">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element
+														name="dp" maxOccurs="unbounded" minOccurs="0">
+														<xs:complexType>
+															<xs:simpleContent>
+																<xs:extension
+																	base="xs:string">
+																	<xs:attribute
+																		type="xs:string" name="name" use="optional" />
+																	<xs:attribute
+																		type="xs:string" name="currentState" use="optional" />
+																</xs:extension>
+															</xs:simpleContent>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="process">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension
+														base="xs:string">
+														<xs:attribute
+															type="xs:string" name="curentActivity" use="optional" />
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute type="xs:string"
+										name="id" use="optional" />
+									<xs:attribute name="lat"
+										type="xs:string">
+									</xs:attribute>
+									<xs:attribute name="long"
+										type="xs:string">
+									</xs:attribute>
+									<xs:attribute name="preferenceFile"
+										type="xs:string">
+									</xs:attribute>
+									<xs:attribute name="onTurn"
+										type="xs:int">
+									</xs:attribute>
+									<xs:attribute name="hoaaVar"
+										type="xs:string">
+										<xs:annotation>
+											<xs:documentation>
+												Name of the variable
+												(created if not present)
+												for core process
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="hoaa"
+										type="xs:string">
+										<xs:annotation>
+											<xs:documentation>
+												High Order Activity
+												transport means, a
+												string with comma
+												separated values for
+												example:
+
+												walk, flexibus, train,
+												walk
+
+												value is saved in
+												hoaaVar
+											</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="ensemble"
+										type="xs:string">
+									</xs:attribute>
+									<xs:attribute name="correlations"
+										type="xs:string">
+									</xs:attribute>
+									<xs:attribute name="selectedRoute"
+										type="xs:string">
+									</xs:attribute>
+									<xs:attribute name="pickupPoint"
+										type="xs:int">
+									</xs:attribute>
+									<xs:attribute name="routes"
+										type="xs:string">
+                                        <xs:annotation>
+                                        	<xs:documentation>A list of comma separated values representing available routes for user</xs:documentation>
+                                        </xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute type="xs:string" name="file" use="optional" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
