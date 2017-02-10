@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://das.fbk.eu/Wrapper" xmlns:tns="http://das.fbk.eu/Wrapper" elementFormDefault="qualified">
+<import schemaLocation="DomainObject.xsd" namespace="http://das.fbk.eu/DomainObject"/>
+<import schemaLocation="DomainProperty.xsd"  namespace="http://das.fbk.eu/Process"/>
+<import schemaLocation="Composition.xsd"  namespace="http://das.fbk.eu/Composition"/>
+</schema>
