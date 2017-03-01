@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://das.fbk.eu/DataType"
+	targetNamespace="http://das.fbk.eu/DataType" elementFormDefault="qualified">
+
+	<complexType name="variableType">
+		<sequence maxOccurs="1">
+			<element name="content" type="anyType" />
+		</sequence>
+		<attribute name="name" type="string" use="required" />
+		<attribute name="type" type="tns:actionVariableTypeValues"
+			use="required" />
+	</complexType>
+
+	<simpleType name="actionVariableTypeValues">
+		<restriction base="string">
+			<enumeration value="default" />
+			<enumeration value="integer" />
+			<enumeration value="string" />
+			<enumeration value="date" />
+			<enumeration value="double" />
+			<enumeration value="boolean" />
+			<enumeration value="time" />
+			<enumeration value="arrayOfString" />
+		</restriction>
+	</simpleType>
+
+	<complexType name='ArrayOfString'>
+		<sequence>
+			<element name='item' type='string' maxOccurs='unbounded' />
+		</sequence>
+	</complexType>
+
+</schema>

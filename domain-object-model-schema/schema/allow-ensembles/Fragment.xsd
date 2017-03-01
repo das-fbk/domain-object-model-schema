@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://das.fbk.eu/Fragment"
-	xmlns:an="http://das.fbk.eu/Annotation" targetNamespace="http://das.fbk.eu/Fragment"
-	elementFormDefault="qualified">
+	xmlns:an="http://das.fbk.eu/Annotation" xmlns:dt="http://das.fbk.eu/DataType"
+	targetNamespace="http://das.fbk.eu/Fragment" elementFormDefault="qualified">
 
 	<import namespace="http://das.fbk.eu/Annotation" schemaLocation="Annotation.xsd" />
+	<import namespace="http://das.fbk.eu/DataType" schemaLocation="DataType.xsd" />
 
 
 	<element name="fragment">
@@ -82,9 +83,32 @@
 				maxOccurs="1" />
 			<element name="compensation" type="an:CompensationType"
 				minOccurs="0" maxOccurs="1" />
+			<!--Martina: added the possibility for the designer to define variables 
+				for the actions in fragments. -->
+			<!-- <element name="actionVariable" minOccurs="0" -->
+			<!-- maxOccurs="unbounded"> -->
+			<!-- <complexType> -->
+			<!-- <attribute name="name" type="string" use="required" /> -->
+			<!-- <attribute name="type" type="string" use="required" /> -->
+			<!-- <attribute name="value" type="tns:variableType" use="required" /> -->
+			<!-- </complexType> -->
+			<!-- </element> -->
+
+			<element name="actionVariable" minOccurs="0" maxOccurs="unbounded"
+				type="dt:variableType">
+				<!-- <complexType> -->
+				<!-- <simpleContent> -->
+				<!-- <extension base="string"> -->
+				<!-- <attribute name="name" type="string" use="required" /> -->
+				<!-- <attribute name="type" type="dt:actionVariableTypeValues" -->
+				<!-- use="required" /> -->
+				<!-- </extension> -->
+				<!-- </simpleContent> -->
+				<!-- </complexType> -->
+			</element>
+
 		</sequence>
 		<attribute name="name" type="string" />
-
 		<attribute name="type" type="string"></attribute>
 		<attribute name="receiveVar" type="string"></attribute>
 	</complexType>
